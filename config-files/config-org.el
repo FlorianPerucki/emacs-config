@@ -7,17 +7,16 @@
   (setq org-default-notes-file (concat custom-org-dir "work.org"))
   (setq org-agenda-files (list (concat custom-org-dir "work.org")
 			       (concat custom-org-dir "home.org")))
-
   ;; capture templates
   (setq org-capture-templates
 	'(
-	  ("d" "Daily" entry (file+datetree (concat custom-org-dir "daily.org"))
+	  ("d" "Daily" entry (file+datetree (lambda () (expand-file-name "daily.org" custom-org-dir)))
 	   "* %?"
 	   )
-	  ("t" "Todo" entry (file+headline (concat custom-org-dir "work.org") "TODOs")
+	  ("t" "Todo" entry (file+headline (lambda () (expand-file-name "work.org" custom-org-dir)) "TODOs")
 	   "* TODO %?"
 	   )
-	  ("h" "Home" entry (file+datetree (concat custom-org-dir "home.org"))
+	  ("h" "Home" entry (file+datetree (lambda () (expand-file-name "home.org" custom-org-dir)))
 	   "* %?\nEntered on %U\n  %i\n  %a"
 	   )
 	  ;; ("d" "Drill" entry (file+headline (concat custom-org-dir "drill.org") "Captured")
