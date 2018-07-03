@@ -34,11 +34,7 @@
 
   ;; (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
 
-  (add-hook 'org-mode-hook
-	    '(lambda ()
-	       (nlinum-mode 0)
-	       )
-	    )
+  (add-hook 'org-mode-hook '(lambda () (display-line-numbers-mode -1)))
   )
 
 (use-package deft
