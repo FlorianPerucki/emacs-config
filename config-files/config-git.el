@@ -30,6 +30,15 @@
                   nil)
 		 (t
                   '(display-buffer-same-window))))))
+
+  (use-package magit-todos)
+  )
+
+(use-package git-messenger
+  :bind ("H-m" . git-messenger:popup-message)
+  :config
+  (setq git-messenger:show-detail t)
+  (setq git-messenger:use-magit-popup t)
   )
 
 (use-package diff-hl
