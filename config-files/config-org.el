@@ -6,7 +6,8 @@
   ;; files location
   (setq org-default-notes-file (concat custom-org-dir "work.org"))
   (setq org-agenda-files (list (concat custom-org-dir "work.org")
-			       (concat custom-org-dir "home.org")))
+			       (concat custom-org-dir "home.org")
+                               (concat custom-org-dir "daily.org")))
   ;; capture templates
   (setq org-capture-templates
 	'(
