@@ -325,6 +325,7 @@ See `sort-regexp-fields'."
 
 (use-package multiple-cursors
   :config
+  (define-key mc/keymap (kbd "<return>") nil)
   (global-set-key (kbd "s-<") 'mc/mark-next-like-this)
   (global-set-key (kbd "s->") 'mc/mark-previous-like-this)
   (global-set-key (kbd "s-A") 'mc/mark-all-like-this)
