@@ -260,27 +260,6 @@ See `sort-regexp-fields'."
 	    (if this-win-2nd (other-window 1))))))
 
   (bind-key "s-t" 'toggle-window-split)
-  )
-
-(use-package ibuffer
-  ;; :bind ("C-x C-b" . ibuffer)
-  :config
-  ;; Functions
-  (defun ibuffer-group-buffers ()
-    (ibuffer-switch-to-saved-filter-groups "Default"))
-
-  ;; Hooks
-  (add-hook 'ibuffer-mode-hook #'ibuffer-group-buffers)
-  (add-hook 'ibuffer-mode-hook #'ibuffer-auto-mode)
-
-  ;; Variables
-  (setq-default ibuffer-saved-filter-groups
-                '(("Default"
-                   ("Dired" (mode . dired-mode))
-                   ("Magit" (name . "\*magit.+*"))
-                   ("Org" (mode . org-mode))
-                   ("Grep" (name . "\*grep-.*"))
-		   ("Temporary" (name . "\*.*\*")))))
 
   (defun toggle-maximize-buffer () "Maximize buffer"
          (interactive)
@@ -291,6 +270,20 @@ See `sort-regexp-fields'."
 	     (delete-other-windows))))
   (global-set-key (kbd "s-S-<return>") 'toggle-maximize-buffer)
 
+  )
+
+(use-package ibuffer
+  :bind ("C-x C-b" . ibuffer)
+  :config
+  ;; Functions
+  (use-package ibuffer-projectile
+    :config
+    (add-hook 'ibuffer-hook
+              (lambda ()
+                (ibuffer-projectile-set-filter-groups)
+                (unless (eq ibuffer-sorting-mode 'alphabetic)
+                  (ibuffer-do-sort-by-alphabetic))))
+    )
   )
 
 (use-package tramp
