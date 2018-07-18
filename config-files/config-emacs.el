@@ -286,6 +286,18 @@ See `sort-regexp-fields'."
     )
   )
 
+(use-package workgroups
+  :config
+  (wg-load "~/Dropbox/emacs/workgroups")
+  (setq wg-morph-on nil)
+  :bind
+  ("M-m w c" . wg-create-workgroup)
+  ("M-m w l" . wg-switch-to-workgroup)
+  ("M-m w s" . wg-save)
+  ("M-m w r" . wg-revert-workgroup)
+  ("M-m w u" . wg-update-workgroup)
+  )
+
 (use-package tramp
   :config
   (setq tramp-default-method "ssh")
