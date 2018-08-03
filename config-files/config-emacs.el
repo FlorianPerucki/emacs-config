@@ -286,16 +286,18 @@ See `sort-regexp-fields'."
     )
   )
 
-(use-package workgroups
+(use-package workgroups2
   :config
-  (wg-load "~/Dropbox/emacs/workgroups")
-  (setq wg-morph-on nil)
+  (setq wg-session-file "~/Dropbox/emacs/workgroups2")
+  (setq wg-prefix-key (kbd "M-m w"))
+  (setq wg-emacs-exit-save-behavior           nil)
+  (setq wg-workgroups-mode-exit-save-behavior nil)
   :bind
   ("M-m w c" . wg-create-workgroup)
   ("M-m w l" . wg-switch-to-workgroup)
-  ("M-m w s" . wg-save)
-  ("M-m w r" . wg-revert-workgroup)
-  ("M-m w u" . wg-update-workgroup)
+  ("M-m w s" . wg-save-session)
+  ("M-m w r" . wg-reload-session)
+  ("M-m w p" . wg-switch-to-previous-workgroup)
   )
 
 (use-package tramp

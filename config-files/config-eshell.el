@@ -3,13 +3,6 @@
   :after helm
   :init
   (add-hook 'eshell-mode-hook
-	    '(lambda ()
-
-	       ;; (yasnippet-minor-mode t)
-
-	       )
-	    )
-  (add-hook 'eshell-mode-hook
 	    (lambda ()
               (display-line-numbers-mode -1)
 	      (define-key eshell-mode-map (kbd "M-r") 'helm-eshell-history)
