@@ -40,4 +40,6 @@
   (setq web-mode-enable-css-colorization t)
   )
 
+(use-package vue-mode)
+
 (provide 'config-web)
