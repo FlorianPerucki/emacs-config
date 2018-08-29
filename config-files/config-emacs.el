@@ -329,6 +329,14 @@ See `sort-regexp-fields'."
   ("M-m w s" . wg-save-session)
   ("M-m w r" . wg-reload-session)
   ("M-m w p" . wg-switch-to-previous-workgroup)
+
+(use-package treemacs
+  :init
+  (add-hook 'treemacs-mode-hook
+	    (lambda ()
+              (display-line-numbers-mode -1)))
+  :config
+  (global-set-key (my/kbd "t") 'treemacs)
   )
 
 (use-package tramp
