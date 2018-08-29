@@ -320,15 +320,10 @@ See `sort-regexp-fields'."
 (use-package workgroups2
   :config
   (setq wg-session-file "~/Dropbox/emacs/workgroups2")
-  (setq wg-prefix-key (kbd "M-m w"))
+  (setq wg-prefix-key (my/kbd "w"))
   (setq wg-emacs-exit-save-behavior           nil)
   (setq wg-workgroups-mode-exit-save-behavior nil)
-  :bind
-  ("M-m w c" . wg-create-workgroup)
-  ("M-m w l" . wg-switch-to-workgroup)
-  ("M-m w s" . wg-save-session)
-  ("M-m w r" . wg-reload-session)
-  ("M-m w p" . wg-switch-to-previous-workgroup)
+  )
 
 (use-package treemacs
   :init
