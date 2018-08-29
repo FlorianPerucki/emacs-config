@@ -4,7 +4,8 @@
   (
    ("M-m g s" . magit-status)
    ("M-m g b" . magit-blame)
-   ("M-m g h l" . magit-log-buffer-file)
+   ("M-m g l" . magit-log-buffer-file)
+   ("M-m g c" . magit-branch-checkout)
    )
 
   :hook
@@ -33,6 +34,9 @@
 
   (use-package magit-todos)
   )
+
+
+(use-package git-timemachine)
 
 (use-package git-messenger
   :bind ("H-m" . git-messenger:popup-message)

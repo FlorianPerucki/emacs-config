@@ -50,6 +50,7 @@ directory to make multiple eshell windows easier."
   (bind-key "C-!" 'my/eshell-here)
 
   (global-set-key (kbd "s-!") 'projectile-run-eshell)
+  (global-set-key (my/kbd "e") 'projectile-run-eshell)
 
   ;; (use-package eshell-git-prompt
   (use-package eshell-prompt-extras

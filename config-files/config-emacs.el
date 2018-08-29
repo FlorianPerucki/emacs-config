@@ -13,6 +13,11 @@
 
   (bind-key "C-," 'help-command)
   (bind-key "C-h" 'delete-backward-char)
+  (bind-key "s-<backspace>" 'previous-buffer)
+  (bind-key (my/kbd "h") 'highlight-symbol-at-point)
+
+  ;; buffers
+  (bind-key (my/kbd "b r") 'rename-buffer)
 
   ;; C-x C-x activates the region by default, disable this behavior
   (defun exchange-point-and-mark-no-activate ()
@@ -51,7 +56,7 @@
     (message "Pushed mark to ring"))
   (global-set-key (kbd "s-i") 'push-mark-no-activate)
 
-  (bind-key "C-x p" 'pop-to-mark-command)
+  (bind-key "C-x p" 'kmacro-call-macro)
   (setq set-mark-command-repeat-pop t)
 
   (defadvice kill-region (before slick-cut activate compile)
@@ -76,7 +81,7 @@
 
   ;; make sure emacsclient starts at fullscreen
   (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
+  (global-set-key (kbd "C-x c") 'delete-frame)
 
   ;; press M-j multiple times to join lines
   (global-set-key (kbd "M-j")
@@ -197,6 +202,13 @@ region, operate on a single line. Otherwise, operate on region."
       (back-to-indentation)
       (kill-region (point) prev-pos)))
   (bind-key "s-K" #'kill-back-to-indentation)
+
+  (defun kill-close-buffer ()
+    (interactive)
+    (kill-current-buffer)
+    (delete-window)
+    )
+  (bind-key "M-k" 'kill-close-buffer)
 
   (defun my/smarter-move-beginning-of-line (arg)
     "Move point back to indentation of beginning of line.
@@ -434,7 +446,6 @@ See `sort-regexp-fields'."
 
 (use-package isearch
   :ensure nil
-  :bind
   :config
   (defun my/clear-isearch ()
     (interactive)
@@ -462,6 +473,10 @@ See `sort-regexp-fields'."
 (use-package avy
   :config
   (global-set-key (kbd "s-j") 'avy-goto-char-timer)
+  )
+
+(use-package edit-indirect
+  :bind (("C-x n i" . edit-indirect-region))
   )
 
 (provide 'config-emacs)
