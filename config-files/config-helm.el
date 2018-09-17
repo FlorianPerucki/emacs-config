@@ -128,6 +128,8 @@
   ;; don't try to find project name. Should speed up tramp sessions
   (setq projectile-mode-line "Projectile")
   (projectile-mode)
+  :bind
+  ("M-m p e" . projectile-run-eshell)
   )
 
 (use-package helm-projectile

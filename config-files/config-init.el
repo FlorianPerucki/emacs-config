@@ -3,7 +3,15 @@
       gc-cons-percentage 0.6)
 (add-hook 'focus-out-hook #'garbage-collect)
 
-(setq make-backup-files nil)
+;; temp file management
+(setq make-backup-files t)
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+  kept-new-versions 6
+  kept-old-versions 2
+  version-control t)
+
 (setq auto-save-default nil)
 
 ;; silence all bell rings
@@ -17,8 +25,7 @@
 (setq PREFIX "M-m ")
 (defun my/kbd (key)
   (interactive)
-  (kbd (concat PREFIX key))
-  )
+  (kbd (concat PREFIX key)))
 
 ;; disable blinking cursor
 (blink-cursor-mode -1)

@@ -32,7 +32,6 @@
 (setq config-packages
       (list
        'config-init
-       'config-private
        'config-custom
        'config-use-package
        'config-emacs
@@ -46,6 +45,8 @@
        'config-web
        'config-docker
        'config-hydra
+       'config-mrq
+       'config-private
        )
       )
 

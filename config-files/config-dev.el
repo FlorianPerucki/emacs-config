@@ -37,13 +37,15 @@
     "Identical to \\[dumb-jump-go] but will recenter the cursor."
     (interactive)
     (dumb-jump-go)
-    (recenter (- (window-height))))
+    ;; (recenter (- (window-height)))
+    (reposition-window)
+    )
 
   (defun my/dumb-jump-back ()
     "Identical to \\[dumb-jump-back] but will recenter the cursor."
     (interactive)
     (dumb-jump-back)
-    (recenter))
+    (reposition-window))
 
   (global-set-key (kbd "s-<up>") 'my/dumb-jump-go)
   (global-set-key (kbd "s-<return>") 'my/dumb-jump-go)
