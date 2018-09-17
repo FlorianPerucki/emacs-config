@@ -243,6 +243,17 @@ point reaches the beginning or end of the buffer, stop there."
         initial-scratch-message nil
         mode-line-format nil
         )
+
+  (defun narrow-to-region-indirect (start end)
+    "Restrict editing in this buffer to the current region, indirectly."
+    (interactive "r")
+    (deactivate-mark)
+    (let ((buf (clone-indirect-buffer nil nil)))
+      (with-current-buffer buf
+        (narrow-to-region start end))
+      (pop-to-buffer buf)))
+  (bind-key (kbd "C-x n r") 'narrow-to-region-indirect)
+
   (defun my/sort-words (reverse beg end)
     "Sort words in region alphabetically, in REVERSE if negative.
 Prefixed with negative \\[universal-argument], sorts in reverse.
