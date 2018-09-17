@@ -312,7 +312,8 @@ See `sort-regexp-fields'."
   (setq wg-prefix-key (my/kbd "w"))
   (setq wg-emacs-exit-save-behavior           nil)
   (setq wg-workgroups-mode-exit-save-behavior nil)
-  )
+  (setq wg-restore-frame-position nil)
+  (workgroups-mode 1))
 
 (use-package treemacs
   :init
@@ -320,8 +321,7 @@ See `sort-regexp-fields'."
 	    (lambda ()
               (display-line-numbers-mode -1)))
   :config
-  (global-set-key (my/kbd "t") 'treemacs)
-  )
+  (global-set-key (my/kbd "t") 'treemacs))
 
 (use-package tramp
   :config
