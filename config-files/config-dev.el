@@ -29,6 +29,7 @@
   :config
   (define-globalized-minor-mode global-dumb-jump-mode
     dumb-jump-mode dumb-jump-mode)
+  (setq dumb-jump-selector 'helm)
   (global-dumb-jump-mode 1)
 
   ;; redefine dumb-jump methods to also recenter cursor
