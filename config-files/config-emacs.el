@@ -36,17 +36,6 @@
                       (buffer-file-name))))
       (kill-new filename)))
 
-  (defun copy-task-path ()
-    (interactive)
-    (let* ((path (substring (copy-path) 0 -3)) ; drop the .py
-           (elts (split-string path "/" t))    ; split by "/"
-           (elts (member "tasks" elts)) ; keep list elements after "tasks"
-           (elts (append elts (list (format "%S" (symbol-at-point)))))
-           (path (string-join elts ".")))
-      (kill-new (concat "mrq-run " path))))
-
-  (bind-key "M-m m t" 'copy-task-path)
-
   ;; simple key to push a mark
   (defun push-mark-no-activate ()
     "Pushes `point' to `mark-ring' and does not activate the region
