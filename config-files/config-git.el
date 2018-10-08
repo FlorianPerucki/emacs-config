@@ -49,6 +49,8 @@
   :init
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode 1)
+  :bind (("M-m g n" . diff-hl-next-hunk)
+         ("M-m g p" . diff-hl-previous-hunk))
   :config
   (setq diff-hl-draw-borders nil)
   (set-face-attribute 'diff-hl-change nil :foreground "chocolate" :background "chocolate" :box nil)
