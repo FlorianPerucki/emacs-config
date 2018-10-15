@@ -5,6 +5,7 @@
    ("M-m g s" . magit-status)
    ("M-m g b" . magit-blame)
    ("M-m g l" . magit-log-buffer-file)
+   ("M-m g L" . magit-log-current)
    ("M-m g c" . magit-branch-checkout)
    )
 
@@ -12,7 +13,7 @@
   (magit-status-mode . (lambda () (define-key magit-status-mode-map (kbd "<tab>") 'magit-section-toggle)))
 
   :config
-  (setq magit-revision-show-gravatar nil)
+  (setq magit-revision-show-gravatars nil)
 
   ;; open magit in the current frame
   (setq magit-display-buffer-function
@@ -49,8 +50,8 @@
   :init
   (global-diff-hl-mode)
   (diff-hl-flydiff-mode 1)
-  :bind (("M-m g n" . diff-hl-next-hunk)
-         ("M-m g p" . diff-hl-previous-hunk))
+  :bind (("s-n" . diff-hl-next-hunk)
+         ("s-p" . diff-hl-previous-hunk))
   :config
   (setq diff-hl-draw-borders nil)
   (set-face-attribute 'diff-hl-change nil :foreground "chocolate" :background "chocolate" :box nil)

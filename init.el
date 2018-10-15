@@ -57,3 +57,6 @@
 ;; nice resource: http://pages.sachachua.com/.emacs.d/Sacha.html
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#d-features
 ;; https://github.com/CSRaghunandan/.emacs.d/blob/master/init.el
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)

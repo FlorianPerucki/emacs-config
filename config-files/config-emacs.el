@@ -19,6 +19,10 @@
   ;; buffers
   (bind-key (my/kbd "b r") 'rename-buffer)
 
+  (global-set-key (kbd "M-<return>")
+    (lambda () (interactive)
+      (switch-to-buffer (other-buffer (current-buffer) t))))
+
   ;; C-x C-x activates the region by default, disable this behavior
   (defun exchange-point-and-mark-no-activate ()
     "Identical to \\[exchange-point-and-mark] but will not activate the region."

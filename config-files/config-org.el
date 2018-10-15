@@ -1,7 +1,10 @@
 (setq custom-org-dir "~/Dropbox/emacs/orgmode/")
+
 (use-package org
   :commands org-mode
   :config
+
+  (setq org-startup-truncated nil)
 
   ;; files location
   (setq org-default-notes-file (concat custom-org-dir "work.org"))
