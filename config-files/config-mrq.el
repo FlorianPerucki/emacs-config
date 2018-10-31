@@ -5,7 +5,8 @@
          (elts (split-string path "/" t))    ; split by "/"
          (elts (member "tasks" elts)) ; keep list elements after "tasks"
          (elts (append elts (list (format "%S" (symbol-at-point)))))
-         (path (string-join elts ".")))
+         (path (string-join elts "."))
+         (path (s-replace "__init__." "" path)))
     (kill-new (concat "mrq-run " path))))
 
 (global-set-key (my/kbd "m t") 'copy-task-path)
@@ -16,7 +17,9 @@ the class name at point "
   (interactive)
   (let ((path (copy-task-path)))
     (open-line-above)
-    (insert (concat "# " path)))
+    (beginning-of-line)
+    (insert (concat "# " path))
+    (delete-trailing-whitespace (line-beginning-position) (line-end-position)))
   )
 
 (global-set-key (my/kbd "m T") 'insert-task-path)
