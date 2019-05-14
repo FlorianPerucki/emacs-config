@@ -14,12 +14,14 @@
   (bind-key "C-," 'help-command)
   (bind-key "C-h" 'delete-backward-char)
   (bind-key "s-<backspace>" 'previous-buffer)
+  (bind-key "s-<left>" 'previous-buffer)
+  (bind-key "s-<right>" 'next-buffer)
   (bind-key (my/kbd "h") 'highlight-symbol-at-point)
 
   ;; buffers
-  (bind-key (my/kbd "b r") 'rename-buffer)
+  (bind-key (my/kbd "R") 'rename-buffer)
 
-  (global-set-key (kbd "M-<return>")
+  (global-set-key (kbd "s-@")
     (lambda () (interactive)
       (switch-to-buffer (other-buffer (current-buffer) t))))
 
@@ -403,8 +405,10 @@ See `sort-regexp-fields'."
 
 (use-package smartscan
   :config
-  (global-set-key (kbd "s-n") 'smartscan-symbol-go-forward)
-  (global-set-key (kbd "s-p") 'smartscan-symbol-go-backward)
+  (global-set-key (kbd "s-f") 'smartscan-symbol-go-forward)
+  (global-set-key (kbd "s-F") 'smartscan-symbol-replace)
+  (global-set-key (kbd "s-b") 'smartscan-symbol-go-backward)
+  (bind-key "s-b" 'smartscan-symbol-go-backward)
   )
 
 (use-package ace-window
