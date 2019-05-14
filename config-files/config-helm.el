@@ -4,7 +4,7 @@
   ("M-x" . helm-M-x)
   ("C-x C-f" . helm-find-files)
   ("C-x b" . helm-buffers-list)
-  ("M-m f r" . helm-recentf)
+  ("M-m r" . helm-recentf)
   ("C-c k" . helm-show-kill-ring)
   ("C-c SPC" . helm-all-mark-rings)
   ("M-m s l" . helm-resume)
@@ -12,6 +12,7 @@
 
   :config
   (setq x-wait-for-event-timeout nil)
+
   (setq helm-buffers-fuzzy-matching t
 	helm-ff-fuzzy-matching t
 	helm-M-x-fuzzy-match t
@@ -25,6 +26,8 @@
   (define-key helm-map (kbd "TAB") #'helm-execute-persistent-action)
   (define-key helm-map (kbd "<tab>") #'helm-execute-persistent-action)
   (define-key helm-map (kbd "C-z") #'helm-select-action)
+
+  (setq helm-buffer-max-length 50)
 
   ;; hide mini-buffer in helm buffers
   (defun helm-hide-minibuffer-maybe ()
@@ -130,6 +133,8 @@
   (projectile-mode)
   :bind
   ("M-m p e" . projectile-run-eshell)
+  ("M-m b" . helm-projectile-switch-to-buffer)
+  ("M-m f" . helm-projectile-find-file)
   )
 
 (use-package helm-projectile
