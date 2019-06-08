@@ -75,7 +75,7 @@
   (display-time-mode)
 
   ;; make sure emacsclient starts at fullscreen
-  (add-to-list 'default-frame-alist '(fullscreen . maximized))
+  ;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
   (global-set-key (kbd "C-x c") 'delete-frame)
 
   ;; press M-j multiple times to join lines
@@ -324,14 +324,14 @@ See `sort-regexp-fields'."
   )
 
 (use-package workgroups2
+  :defer t
   :config
   (when custom-workgroups-dir
     (setq wg-session-file custom-workgroups-dir))
   (setq wg-prefix-key (my/kbd "w"))
   (setq wg-emacs-exit-save-behavior           nil)
   (setq wg-workgroups-mode-exit-save-behavior nil)
-  (setq wg-restore-frame-position nil)
-  (workgroups-mode 1))
+  (setq wg-restore-frame-position nil))
 
 ;; (use-package treemacs
 ;;   :init

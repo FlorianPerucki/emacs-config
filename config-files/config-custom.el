@@ -3,6 +3,7 @@
 
 (setq custom-snippets-dir "~/Dropbox/emacs/snippets")
 
+(setq custom-workgroups-dir nil)
 ;; (setq custom-workgroups-dir "~/Dropbox/emacs/workgroups2")
 
 (setq custom-org-dir "~/Dropbox/emacs/orgmode/")
