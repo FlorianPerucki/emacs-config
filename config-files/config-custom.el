@@ -2,9 +2,10 @@
 (setq shell-file-name "/bin/zsh")
 
 (setq custom-snippets-dir "~/Dropbox/emacs/snippets")
+
 ;; (setq custom-workgroups-dir "~/Dropbox/emacs/workgroups2")
 
-(setq custom-org-dir ("~/Dropbox/emacs/orgmode/"))
+(setq custom-org-dir "~/Dropbox/emacs/orgmode/")
 (if (not (file-exists-p custom-org-dir))
     (setq custom-org-dir "~/.emacs_orgmode"))
 
