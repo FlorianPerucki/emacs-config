@@ -33,6 +33,10 @@
 		 (t
                   '(display-buffer-same-window))))))
 
+  ;; should be located in config-theme.el, not sure why it doesn't work there
+  (set-face-attribute 'magit-diff-context-highlight nil :background "#242629" :foreground "#c5c8c6")
+  (set-face-attribute 'magit-diff-file-heading-highlight nil :background "#3c4044")
+
   (use-package magit-todos)
   )
 

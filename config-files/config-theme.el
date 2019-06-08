@@ -5,6 +5,7 @@
   :preface (defvar region-fg nil)
   :init (load-theme 'doom-tomorrow-night t)
   :config
+  (setq ns-use-srgb-colorspace nil) ;; fix separators on macos
   ;; (load-theme 'doom-tomorrow-night t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
@@ -14,8 +15,7 @@
 
   (use-package spaceline
     :config
-    (setq ns-use-srgb-colorspace nil) ;; fix separators on macos
-    (spaceline-spacemacs-theme)
+    (spaceline-emacs-theme)
     (spaceline-toggle-minor-modes-off)
     (spaceline-toggle-version-control-on)
     )
