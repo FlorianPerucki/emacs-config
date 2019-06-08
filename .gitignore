@@ -1,1 +1,7 @@
 config-files/config-private.el
+recentf
+transient
+projectile.cache
+elpa
+.projectile-bookmarks.eld
+.cache
