@@ -325,20 +325,21 @@ See `sort-regexp-fields'."
 
 (use-package workgroups2
   :config
-  (setq wg-session-file "~/Dropbox/emacs/workgroups2")
+  (when custom-workgroups-dir
+    (setq wg-session-file custom-workgroups-dir))
   (setq wg-prefix-key (my/kbd "w"))
   (setq wg-emacs-exit-save-behavior           nil)
   (setq wg-workgroups-mode-exit-save-behavior nil)
   (setq wg-restore-frame-position nil)
   (workgroups-mode 1))
 
-(use-package treemacs
-  :init
-  (add-hook 'treemacs-mode-hook
-	    (lambda ()
-              (display-line-numbers-mode -1)))
-  :config
-  (global-set-key (my/kbd "t") 'treemacs))
+;; (use-package treemacs
+;;   :init
+;;   (add-hook 'treemacs-mode-hook
+;; 	    (lambda ()
+;;               (display-line-numbers-mode -1)))
+;;   :config
+;;   (global-set-key (my/kbd "t") 'treemacs))
 
 (use-package tramp
   :config
@@ -385,23 +386,22 @@ See `sort-regexp-fields'."
   (global-set-key (kbd "M-n") 'move-text-down)
   )
 
-(use-package yasnippet
-  :init
-  (add-to-list 'load-path
-	       "~/Dropbox/emacs/snippets")
-  :config
-  (setq yas-verbosity 1)
-  (yas-global-mode)
-  (yas/load-directory "~/Dropbox/emacs/snippets")
-  (setq yas-snippet-dirs '("~/Dropbox/emacs/snippets"))
-  (bind-key "s-e" '(lambda ()
-                     (interactive)
-                     (yas-expand)
-                     (highlight-lines-matching-regexp "import i?pu?db")
-                     (highlight-lines-matching-regexp "i?pu?db.set_trace()")
-                     )
-            )
-  )
+(when (file-exists-p custom-snippets-dir)
+  (use-package yasnippet
+    :init
+    (add-to-list 'load-path
+	         custom-snippets-dir)
+    :config
+    (setq yas-verbosity 1)
+    (yas-global-mode)
+    (yas/load-directory custom-snippets-dir)
+    (setq yas-snippet-dirs '(custom-snippets-dir))
+    (bind-key "s-e" '(lambda ()
+                       (interactive)
+                       (yas-expand)
+                       (highlight-lines-matching-regexp "import i?pu?db")
+                       (highlight-lines-matching-regexp "i?pu?db.set_trace()")
+                       ))))
 
 (use-package smartscan
   :config

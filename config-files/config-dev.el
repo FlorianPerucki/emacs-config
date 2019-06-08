@@ -14,16 +14,16 @@
   (setq-default csv-align-padding 2)
   )
 
-(use-package realgud
-  :config
-  (defun his-tracing-function (orig-fun &rest args)
-    (message "display-buffer called with args %S" args)
-    (let ((res (apply orig-fun args)))
-      (message "display-buffer returned %S" res)
-      res))
+;; (use-package realgud
+;;   :config
+;;   (defun his-tracing-function (orig-fun &rest args)
+;;     (message "display-buffer called with args %S" args)
+;;     (let ((res (apply orig-fun args)))
+;;       (message "display-buffer returned %S" res)
+;;       res))
 
-  (advice-add 'display-buffer :around #'his-tracing-function)
-  )
+;;   (advice-add 'display-buffer :around #'his-tracing-function)
+;;   )
 
 (use-package dumb-jump
   :config

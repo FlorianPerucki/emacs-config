@@ -1,5 +1,3 @@
-(setq custom-org-dir "~/Dropbox/emacs/orgmode/")
-
 (use-package org
   :commands org-mode
   :config

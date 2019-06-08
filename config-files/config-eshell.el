@@ -25,7 +25,7 @@
   (setq shell-default-shell 'eshell)
   ;; (setq shell-default-height 30)
   (setq eshell-cmpl-cycle-completions nil)
-  (setq eshell-aliases-file "~/Dropbox/emacs/eshell/alias")
+  (setq eshell-aliases-file custom-eshell-alias-dir)
 
   ;; eshell prompt
   (setq epe-show-python-info t)
