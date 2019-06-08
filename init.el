@@ -22,6 +22,10 @@
 ;; Initialise packages
 (package-initialize)
 
+(defun -config-file-exists (config)
+  "Checks if a given config file name is actually present"
+  (file-exists-p (concat user-emacs-directory "config-files/" config ".el")))
+
 ;; make sure use-package is installed and enable it
 (unless (package-installed-p 'use-package) ; unless it is already installed
   (package-refresh-contents) ; updage packages archive
@@ -51,8 +55,8 @@
       )
 
 (dolist (package config-packages)
-  (require package)
-  )
+  (when (-config-file-exists (symbol-name package))
+    (require package)))
 
 ;; nice resource: http://pages.sachachua.com/.emacs.d/Sacha.html
 ;; https://github.com/angrybacon/dotemacs/blob/master/dotemacs.org#d-features

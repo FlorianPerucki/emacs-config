@@ -57,7 +57,9 @@ directory to make multiple eshell windows easier."
     ;; :config
     ;; (eshell-git-prompt-use-theme 'robbyrussell)
     :config
-    (eshell-git-prompt-use-theme 'simple)
+    (use-package eshell-git-prompt
+      :config
+      (eshell-git-prompt-use-theme 'simple))
     ;; )
 
     )

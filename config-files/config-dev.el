@@ -53,12 +53,12 @@
   (global-set-key (kbd "S-<return>") 'my/dumb-jump-back)
   )
 
-(use-package doom-todo-ivy
-  ;; :ensure t
-  :load-path "doom-todo-ivy"
-  :hook (after-init . doom-todo-ivy)
-  :config
-  (global-set-key (my/kbd "p t") 'doom/ivy-tasks)
-  )
+;; (use-package doom-todo-ivy
+;;   :ensure t
+;;   :load-path "doom-todo-ivy"
+;;   :hook (after-init . doom-todo-ivy)
+;;   :config
+;;   (global-set-key (my/kbd "p t") 'doom/ivy-tasks)
+;;   )
 
 (provide 'config-dev)
