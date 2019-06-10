@@ -4,12 +4,12 @@
   (setq js-indent-level 2
         js2-basic-offset 2
         js-chain-indent t)
-  )
+
+  (use-package rjsx-mode))
 
 (use-package css-mode
   :config
-  (setq-default css-indent-offset 2)
-  )
+  (setq-default css-indent-offset 2))
 
 (use-package web-mode
   :mode (("\\.html$" . web-mode)
@@ -37,8 +37,7 @@
   (setq web-mode-enable-current-element-highlight t)
 
   ;; colorize colors in buffers
-  (setq web-mode-enable-css-colorization t)
-  )
+  (setq web-mode-enable-css-colorization t))
 
 (use-package vue-mode)
 
