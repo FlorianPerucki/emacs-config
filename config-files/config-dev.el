@@ -6,7 +6,8 @@
    (js2-mode . flycheck-mode)
    )
   :config
-  (setq flycheck-indication-mode nil)
+  (setq flycheck-indication-mode 'left-fringe)
+  (setq flycheck-python-pylint-executable "python3")
   )
 
 (use-package csv-mode

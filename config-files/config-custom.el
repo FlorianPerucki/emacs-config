@@ -1,12 +1,12 @@
 ;; will use this to retrieve environment variables
 (setq shell-file-name "/bin/zsh")
 
-(setq custom-snippets-dir "~/Dropbox/emacs/snippets")
+(setq custom-snippets-dir (setq custom-org-dir "/Users/florian.perucki/Library/Mobile Documents/com~apple~CloudDocs/emacs/snippets/"))
 
 (setq custom-workgroups-dir nil)
 ;; (setq custom-workgroups-dir "~/Dropbox/emacs/workgroups2")
 
-(setq custom-org-dir "~/Dropbox/emacs/orgmode/")
+(setq custom-org-dir "/Users/florian.perucki/Library/Mobile Documents/com~apple~CloudDocs/emacs/org/")
 (if (not (file-exists-p custom-org-dir))
     (setq custom-org-dir "~/.emacs_orgmode"))
 

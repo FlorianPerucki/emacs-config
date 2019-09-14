@@ -39,6 +39,6 @@
   ;; colorize colors in buffers
   (setq web-mode-enable-css-colorization t))
 
-(use-package vue-mode)
+;; (use-package vue-mode)
 
 (provide 'config-web)

@@ -29,7 +29,8 @@
   (global-set-key (kbd "C-c <up>") 'org-priority-up)
   (global-set-key (kbd "C-c <down>") 'org-priority-down)
 
-  (setq org-confirm-babel-evaluate nil)
+  (setq org-confirm-babel-evaluate nil
+        org-bullets-bullet-list '("●" "○" "✸" "✿"))
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((python . t)))
@@ -37,21 +38,26 @@
   ;; (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
 
   (add-hook 'org-mode-hook '(lambda () (display-line-numbers-mode -1)))
+
+  (use-package org-bullets
+    :defer)
+  (add-hook 'org-mode-hook #'org-bullets-mode)
+
   )
 
 (use-package deft
   :bind ("M-m a n" . deft)
   :commands (deft)
   :config
-  (setq deft-extension "org")
+  (setq deft-extensions '("txt" "md" "org"))
   (setq deft-text-mode 'org-mode)
   (setq deft-directory custom-org-dir)
   (setq deft-use-filename-as-title t)
   (setq deft-auto-save-interval 0)
-  (setq deft-window-width 10)
-  (setq deft-time-format "")
+  ;; (setq deft-window-width 10)
+  (setq deft-recursive t)
+  (setq deft-time-format nil)
   (setq deft-strip-summary-regexp ".*")
-  (setq deft-use-filename-as-title t)
   )
 
 (provide 'config-org)

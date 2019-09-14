@@ -17,7 +17,33 @@
   (bind-key "s-<left>" 'previous-buffer)
   (bind-key "s-<right>" 'next-buffer)
   (bind-key (my/kbd "h") 'highlight-symbol-at-point)
+  (bind-key (kbd "s-i") (lambda () (interactive) (indent-for-tab-command) (next-line)))
 
+  ;; (defface custom-c1 '((t (:background "blue" :foreground "black")))
+  ;;   "custom green")
+  (defface custom-hi-lock-1
+    '((((background dark)) (:background "red" :foreground "black"))
+      (t (:background "red")))
+    "Face for hi-lock mode."
+    )
+  (defface custom-hi-lock-2
+    '((((background dark)) (:background "blue" :foreground "black"))
+      (t (:background "blue")))
+    "Face for hi-lock mode."
+    )
+  (defface custom-hi-lock-3
+    '((((background dark)) (:background "green" :foreground "black"))
+      (t (:background "green")))
+    "Face for hi-lock mode."
+    )
+  (defface custom-hi-lock-4
+    '((((background dark)) (:background "white" :foreground "black"))
+      (t (:background "white")))
+    "Face for hi-lock mode."
+    )
+
+  (setq hi-lock-face-defaults '("custom-hi-lock-3" "custom-hi-lock-2" "custom-hi-lock-1"  "custom-hi-lock-4"))
+  (setq dumb-jump-force-searcher 'rg)
   ;; buffers
   (bind-key (my/kbd "R") 'rename-buffer)
 
@@ -49,7 +75,7 @@
     (interactive)
     (push-mark (point) t nil)
     (message "Pushed mark to ring"))
-  (global-set-key (kbd "s-i") 'push-mark-no-activate)
+  ;; (global-set-key (kbd "s-i") 'push-mark-no-activate)
 
   (bind-key "C-x p" 'kmacro-call-macro)
   (setq set-mark-command-repeat-pop t)
@@ -399,8 +425,8 @@ See `sort-regexp-fields'."
     (bind-key "s-e" '(lambda ()
                        (interactive)
                        (yas-expand)
-                       (highlight-lines-matching-regexp "import i?pu?db")
-                       (highlight-lines-matching-regexp "i?pu?db.set_trace()")
+                       ;; (highlight-lines-matching-regexp "import i?pu?db")
+                       ;; (highlight-lines-matching-regexp "i?pu?db.set_trace()")
                        ))))
 
 (use-package smartscan
@@ -416,17 +442,17 @@ See `sort-regexp-fields'."
   ("C-x o" . 'ace-window)
   )
 
-(use-package undo-tree
-  :demand t
-  :diminish undo-tree-mode
-  :bind  (("s-z" . undo-tree-undo)
-          ("s-Z" . undo-tree-redo))
-  :config
-  (progn
-    (global-undo-tree-mode)
-    (setq undo-tree-visualizer-timestamps t)
-    (setq undo-tree-visualizer-diff t))
-  )
+;; (use-package undo-tree
+;;   :demand t
+;;   :diminish undo-tree-mode
+;;   :bind  (("s-z" . undo-tree-undo)
+;;           ("s-Z" . undo-tree-redo))
+;;   :config
+;;   (progn
+;;     (global-undo-tree-mode)
+;;     (setq undo-tree-visualizer-timestamps t)
+;;     (setq undo-tree-visualizer-diff t))
+;;   )
 
 (use-package rainbow-delimiters
   :config

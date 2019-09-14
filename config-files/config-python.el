@@ -49,7 +49,7 @@
 
   (setq python-indent-guess-indent-offset nil
         indent-tabs-mode nil
-        python-indent-offset 2
+        python-indent-offset 4
         )
 
   :config
@@ -69,8 +69,8 @@
   ;;       flycheck-pylintrc "~/.pylintrc")
 
   (bind-key "s-P" 'my/python-toggle-breakpoint python-mode-map)
-  (bind-key "s-b" 'my/python-toggle-breakpoint python-mode-map)
-  (bind-key "s-B" 'my/python-toggle-breakpoint-ipdb python-mode-map)
+  ;; (bind-key "s-b" 'smartscan-symbol-go-backward python-mode-map)
+  ;; (bind-key "s-B" 'my/python-toggle-breakpoint-ipdb python-mode-map)
 
   (bind-key "M-a" 'python-nav-backward-block python-mode-map)
   (bind-key "M-e" 'python-nav-forward-block python-mode-map)

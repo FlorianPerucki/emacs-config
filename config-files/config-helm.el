@@ -130,11 +130,10 @@
 
   ;; don't try to find project name. Should speed up tramp sessions
   (setq projectile-mode-line "Projectile")
+  (setq projectile-switch-project-action 'magit-status)
   (projectile-mode)
   :bind
   ("M-m p e" . projectile-run-eshell)
-  ("M-m b" . helm-projectile-switch-to-buffer)
-  ("M-m f" . helm-projectile-find-file)
   )
 
 (use-package helm-projectile
@@ -153,8 +152,12 @@
       (call-interactively #'helm-projectile-switch-project))
     )
 
+  (setq helm-rg-default-directory 'git-root)
+
   :bind
   (
+   ("M-m b" . helm-projectile-switch-to-buffer)
+   ("M-m f" . helm-projectile-find-file)
    ("M-m p g" . my/projectile-switch-project-magit-status)
    ("M-m p f" . helm-projectile-find-file)
    ("M-m p p" . helm-projectile-switch-project)
@@ -162,25 +165,47 @@
    )
   )
 
-(use-package helm-ag
-  :after helm
-  :config
-  (setq helm-ag-fuzzy-match t)
-  (setq helm-ag-insert-at-point nil)
-  (defun my/helm-projectile-ag-at-point ()
-    (interactive)
-    (setq helm-ag-insert-at-point 'symbol)
-    (helm-projectile-ag)
-    )
-  (defun my/helm-projectile-ag ()
-    (interactive)
-    (setq helm-ag-insert-at-point nil)
-    (helm-projectile-ag)
-    )
+;; (use-package helm-projectile-rg
+;;   :after helm
+;;   :config
+;;
+;;   )
+
+(use-package helm-ls-git
   :bind
-  ("M-m s a p" . my/helm-projectile-ag)
-  ("M-m s a P" . my/helm-projectile-ag-at-point)
-  ("M-m s g" . helm-do-grep-ag)
-  )
+  (("C-c g" . helm-ls-git-ls)))
+
+(use-package helm-git-grep
+  :bind
+  (("M-m s a p" . helm-git-grep)
+   ("M-m s a P" . helm-git-grep-at-point)))
+
+;; (use-package helm-ag
+;;   :after helm
+;;   :config
+;;   (setq helm-ag-fuzzy-match t)
+;;   (setq helm-ag-insert-at-point nil)
+;;   (defun my/helm-projectile-ag-at-point ()
+;;     (interactive)
+;;     ;; (setq helm-ag-insert-at-point 'symbol)
+;;     (setq helm-rg-thing-at-point 'symbol)
+;;     ;; (set)
+;;     ;; (helm-projectile-ag)
+;;     ;; (helm-projectile-rg)
+;;     (helm-rg)
+;;     )
+;;   ;; (defun my/helm-projectile-ag ()
+;;   ;;   (interactive)
+;;   ;;   ;; (setq helm-ag-insert-at-point nil)
+;;   ;;   (setq helm-rg-thing-at-point nil)
+;;   ;;   ;; (helm-projectile-ag)
+;;   ;;   ;; (helm-projectile-rg)
+;;   ;;   (helm-rg)
+;;   ;;   )
+;;   :bind
+;;   ;; ("M-m s a p" . my/helm-projectile-ag)
+;;   ;; ("M-m s a P" . my/helm-projectile-ag-at-point)
+;;   ;; ("M-m s g" . helm-do-grep-ag)
+;;   )
 
 (provide 'config-helm)
