@@ -13,12 +13,12 @@
   (set-face-attribute 'cursor nil :background "#51afef")
   (set-face-attribute 'font-lock-keyword-face nil :foreground "tomato3")
 
-  (use-package spaceline
-    :config
-    (spaceline-emacs-theme)
-    (spaceline-toggle-minor-modes-off)
-    (spaceline-toggle-version-control-on)
-    )
+  ;; (use-package spaceline
+  ;;   :config
+  ;;   ;; (spaceline-emacs-theme)
+  ;;   (spaceline-toggle-minor-modes-off)
+  ;;   (spaceline-toggle-version-control-on)
+  ;;   )
 
   (use-package popup)
 

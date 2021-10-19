@@ -14,4 +14,8 @@
 (if (not (file-exists-p custom-org-dir))
     (setq custom-eshell-alias-dir "~/.emacs_eshell_alias"))
 
+;; TODO move this & install markdown-preview-mode
+(custom-set-variables
+ '(markdown-command "/usr/local/bin/pandoc"))
+
 (provide 'config-custom)

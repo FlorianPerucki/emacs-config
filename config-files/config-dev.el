@@ -32,6 +32,9 @@
     dumb-jump-mode dumb-jump-mode)
   (setq dumb-jump-selector 'helm)
   (global-dumb-jump-mode 1)
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+  (setq xref-show-definitions-function #'xref-show-definitions-completing-read)
+  (setq dumb-jump-force-searcher 'ag)
 
   ;; redefine dumb-jump methods to also recenter cursor
   (defun my/dumb-jump-go ()

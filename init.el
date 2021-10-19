@@ -64,3 +64,17 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(markdown-command "/usr/local/bin/pandoc")
+ '(package-selected-packages
+   '(terraform-mode markdown-preview-mode org-bullets highlight-indentation anaconda-mode magit-todos hydra dockerfile-mode docker-compose-mode docker web-mode js2-mode git-link diff-hl git-messenger git-timemachine magit dumb-jump csv-mode flycheck exec-path-from-shell eshell-git-prompt eshell-prompt-extras deft helm-git-grep helm-ls-git helm-projectile ibuffer-projectile projectile popwin helm-swoop helm yascroll popup spaceline doom-themes edit-indirect smartparens goto-last-change rainbow-delimiters ace-window smartscan move-text multiple-cursors osx-trash which-key workgroups2 system-packages use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
