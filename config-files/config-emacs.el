@@ -95,6 +95,9 @@
   (semantic-mode 1)
   (smartparens-mode)
 
+  (setq visible-bell nil)
+  (setq ring-bell-function 'ignore)
+
   ;; display date and time
   (setq display-time-format "%Y-%m-%d %H:%M")
   ;; (setq display-time-default-load-average nil)
